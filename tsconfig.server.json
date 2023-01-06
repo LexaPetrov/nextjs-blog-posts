@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "baseUrl": "./",
+    "target": "es5",
+    "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "ES2019", "ES2020"],
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "downlevelIteration": true,
+    "outDir": "build",
+    "noEmit": false,
+    "module": "commonjs",
+  }
+}
