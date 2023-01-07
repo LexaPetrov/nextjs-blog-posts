@@ -69,7 +69,7 @@ const PostsPage: React.FC<PostsPageProps> = memo(() => {
         if (prevParams.search === input) {
           return prevParams;
         }
-        return {...prevParams, search: input};
+        return {...prevParams, offset: 0, search: input};
       });
     }, 800),
     [],
@@ -82,7 +82,7 @@ const PostsPage: React.FC<PostsPageProps> = memo(() => {
 
   const onSelect = useCallback((value: string) => {
     setPage(0);
-    setParams((params) => ({...params, category: value}));
+    setParams((params) => ({...params, offset: 0, category: value}));
   }, []);
 
   const onPostClick = useCallback((slug: string) => {
