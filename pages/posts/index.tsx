@@ -128,7 +128,7 @@ const PostsPage: React.FC<PostsPageProps> = memo(() => {
           />
         ))}
       </div>
-      {!posts.length && (
+      {!posts.length && !getBlogMutation.isLoading && (
         <p className="text-center text-gray-400 text-md w-50">no posts found</p>
       )}
       {Math.ceil((count || 0) / BLOG_POSTS_LIMIT) > 1 && (

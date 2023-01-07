@@ -14,6 +14,10 @@ export type Response = {
 const mockApiRequest = ({slug = ""}: Params): Response => {
   const post: Post = blog.posts.filter((post) => post.slug === slug)[0];
 
+  if(!post) {
+    throw new Error('No post found')
+  }
+
   return {
     post,
     categories: [...blog.categories],
