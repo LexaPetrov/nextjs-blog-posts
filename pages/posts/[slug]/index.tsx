@@ -3,7 +3,6 @@ import {useRouter} from "next/router";
 import {useQuery} from "react-query";
 import Image from "next/image";
 import axios from "axios";
-// import {GetServerSideProps} from "next";
 import {POSTS_URL} from "constants/index";
 import {Container, Loader} from "components/ui";
 import {Response} from "pages/api/posts/[slug]";
@@ -11,7 +10,7 @@ import type {Post, Category} from "types";
 
 type PostPageProps = unknown;
 
-//this component is for possibility of static exports for github pages deploy
+//this post component is for possibility of static exports for github pages deploy only
 
 const PostPage: React.FC<PostPageProps> = memo(() => {
   const [post, setPost] = useState<Post>();
@@ -75,32 +74,5 @@ const PostPage: React.FC<PostPageProps> = memo(() => {
     </Container>
   );
 });
-
-// export const getServerSideProps: GetServerSideProps = async (ctx) => {
-//   const props: Partial<PostPageProps> = {
-//     post: undefined,
-//     categories: undefined,
-//   };
-
-//   const slug = ctx.query?.slug;
-
-//   if (!slug) {
-//     return {notFound: true};
-//   }
-
-//   try {
-//     const {data} = await axios.get<Response>(POSTS_URL + slug, {
-//       baseURL: process.env.BASE_URL,
-//     });
-
-//     props.post = data.post;
-//     props.categories = data.categories;
-//   } catch (error) {
-//     console.error(error);
-//     return {notFound: true};
-//   }
-
-//   return {props};
-// };
 
 export default PostPage;
